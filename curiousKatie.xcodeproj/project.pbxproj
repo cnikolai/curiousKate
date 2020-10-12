@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370C77C225342F2600250CAA /* InterestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C77C125342F2600250CAA /* InterestManager.swift */; };
 		3719E74B252C56BF00F4472E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E74A252C56BF00F4472E /* AppDelegate.swift */; };
 		3719E74D252C56BF00F4472E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E74C252C56BF00F4472E /* SceneDelegate.swift */; };
 		3719E74F252C56BF00F4472E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E74E252C56BF00F4472E /* ViewController.swift */; };
 		3719E752252C56BF00F4472E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3719E750252C56BF00F4472E /* Main.storyboard */; };
 		3719E754252C56C100F4472E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3719E753252C56C100F4472E /* Assets.xcassets */; };
 		3719E757252C56C100F4472E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3719E755252C56C100F4472E /* LaunchScreen.storyboard */; };
+		3719E75F252C56F900F4472E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E75E252C56F900F4472E /* Person.swift */; };
+		3719E761252C579200F4472E /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E760252C579200F4472E /* Interest.swift */; };
+		3719E763252C5B2A00F4472E /* introductions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E762252C5B2A00F4472E /* introductions.swift */; };
+		3719E765252CA96100F4472E /* PeopleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719E764252CA96100F4472E /* PeopleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		370C77C125342F2600250CAA /* InterestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestManager.swift; sourceTree = "<group>"; };
 		3719E747252C56BF00F4472E /* curiousKatie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = curiousKatie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3719E74A252C56BF00F4472E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3719E74C252C56BF00F4472E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		3719E753252C56C100F4472E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3719E756252C56C100F4472E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3719E758252C56C100F4472E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3719E75E252C56F900F4472E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		3719E760252C579200F4472E /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		3719E762252C5B2A00F4472E /* introductions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = introductions.swift; sourceTree = "<group>"; };
+		3719E764252CA96100F4472E /* PeopleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,11 @@
 				3719E753252C56C100F4472E /* Assets.xcassets */,
 				3719E755252C56C100F4472E /* LaunchScreen.storyboard */,
 				3719E758252C56C100F4472E /* Info.plist */,
+				3719E75E252C56F900F4472E /* Person.swift */,
+				3719E760252C579200F4472E /* Interest.swift */,
+				3719E762252C5B2A00F4472E /* introductions.swift */,
+				3719E764252CA96100F4472E /* PeopleManager.swift */,
+				370C77C125342F2600250CAA /* InterestManager.swift */,
 			);
 			path = curiousKatie;
 			sourceTree = "<group>";
@@ -139,8 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3719E74F252C56BF00F4472E /* ViewController.swift in Sources */,
+				370C77C225342F2600250CAA /* InterestManager.swift in Sources */,
+				3719E763252C5B2A00F4472E /* introductions.swift in Sources */,
+				3719E765252CA96100F4472E /* PeopleManager.swift in Sources */,
 				3719E74B252C56BF00F4472E /* AppDelegate.swift in Sources */,
+				3719E75F252C56F900F4472E /* Person.swift in Sources */,
 				3719E74D252C56BF00F4472E /* SceneDelegate.swift in Sources */,
+				3719E761252C579200F4472E /* Interest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
