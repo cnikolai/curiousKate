@@ -14,7 +14,7 @@ struct Person {
     let age:Int
     let hometown:String
     
-    public func setInterest(anInterest: Interest) -> Void {
+    public mutating func setInterest(anInterest: Interest) -> Void {
         interests.append(anInterest)
     }
     

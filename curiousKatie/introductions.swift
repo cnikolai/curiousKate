@@ -14,11 +14,12 @@ class Introductions {
     //an array to store the interests available to the game
     let interests:[Interest] = InterestManager.interests
     
+    
     public func playGame() {
         //an array to store the people playing the game this time
         var peoplePlaying:[Person] = []
         //Generate a number of participants (2-12 participants).
-        let randomNumber = Int(arc4random_uniform(10) + 2)
+        let randomNumber = Int(arc4random_uniform(10)+2)
         for i in 0..<randomNumber {
             peoplePlaying.append(people[i])
         }
@@ -66,11 +67,11 @@ class Introductions {
            //let shuffledInterests = interests.shuffled()
            //Populate the initial data container (participants with their interests).
            //sets 3 interests for each person
-           for i in 0...11 {
+           for i in 0...10 {
                //select a random number of interests (up to 10)
                let randomNumber = Int(arc4random_uniform(10))
-               for _ in 0..<randomNumber {
-                   let randomNumber = Int(arc4random_uniform(UInt32(interests.count)))
+            for _ in 0..<interests.count {
+                   //let randomNumber = Int(arc4random_uniform(UInt32(interests.count)))
                    peoplePlaying[i].interests.append(interests[randomNumber])
                }
            }
@@ -92,13 +93,13 @@ class Introductions {
             //get the current participant
             let currentParticipant = participantsLeftToShare.popLast()
             //while the person has no more unshared interests, share an interest
-            for interest in currentParticipant!.interests {
+            for var interest in currentParticipant!.interests {
                 //if the interest has not been shared
-                if interest.shared == 0 {
+                if !interest.isCommon {
                     //share the interest
                     interest.printInterest()
                     //change the value of the interest to shared
-                    interest.setShared()
+                    interest.isCommon = true
                     //break out of the interest loop
                     break
                 }
@@ -119,5 +120,4 @@ class Introductions {
     
 }
 
-var newGame = Introductions()
-newGame.playGame()
+
