@@ -42,7 +42,6 @@ class Introductions {
                     }
                     
                 }
-                //if there is still a pairing (there are no shared interests, then append the pairing to the set of pairings
                 if tempPairing.count == 2 {
                     pairings.append(tempPairing)
                 }
