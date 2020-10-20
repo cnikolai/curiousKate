@@ -62,7 +62,6 @@ class Introductions {
         private func shareInterest(_ peoplePlaying: [Person]) {
             //Iterate through all of the interests of each participant in a random order, logging one unshared interest at a time.
             var participantsLeftToShare = peoplePlaying
-            var isCommon = false
             //while there are more partipants left to share
             while (participantsLeftToShare.count > 0) {
                 //get the current participant
