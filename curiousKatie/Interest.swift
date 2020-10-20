@@ -17,7 +17,7 @@ struct Interest {
 //        self.shared = 1
 //    }
     
-    public func printInterest() -> Void {
-        print("Interest \(title): \(additionalInfo)")
+    func printInterest() -> Void {
+        print("\(title): \(additionalInfo)")
     }
 }

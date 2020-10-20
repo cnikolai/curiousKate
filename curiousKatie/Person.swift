@@ -14,16 +14,21 @@ struct Person {
     let age:Int
     let hometown:String
     
-    public mutating func setInterest(anInterest: Interest) -> Void {
+    mutating func setInterest(anInterest: Interest) -> Void {
         interests.append(anInterest)
     }
     
-    public func printPerson() -> Void {
+    func printPerson() -> Void {
         print("\(firstName) \(lastName) has interests: \(interests)")
     }
     
-    public func introduceSelf() -> Void {
+    func introduceSelf() -> Void {
         print("Hi, I'm \(firstName) \(lastName).  I'm \(age) years old, and I'm from \(hometown).")
+        print("I like ")
+        for interest in interests {
+            interest.printInterest()
+        }
+        print("\n")
     }
     
     public func randomInterest(i:Int) -> Interest {
