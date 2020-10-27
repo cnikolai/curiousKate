@@ -32,7 +32,6 @@ struct Person {
     }
     
     public func randomInterest(i:Int) -> Interest {
-        //let randomNumber = arc4random_uniform(3)
         return interests[i]
     }
 }

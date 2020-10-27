@@ -12,36 +12,19 @@ class Introductions {
     let people:[Person] = PeopleManager.people
     let interests:[Interest] = InterestManager.interests
     
-    //MARK: - Setup initial people and interests
     func playGame() {
         let peoplePlaying = getPeople()
     
+        //MARK: - introduce people
         introducePeople(peoplePlaying)
-    
-        shareInterest(peoplePlaying)
         
-        var pairs: [Person] = []
-        for person in peoplePlaying {
-            let interests = person.interests.map{ $0 }
-            for person2 in peoplePlaying {
-                let interests2 = person2.interests.map{ $0 }
-                let differences = zip(interests, interests2).map { $0.0.title == $0.1.title }
-                if differences.count > 0 {
-                    //then this is not a pair
-                    pairs.append(person)
-                    pairs.append(person2)
-                }
-            }
-        }
+        //MARK: - compare interests
+        compareInterests(peoplePlaying)
         
-        
-        
-        //Generate conversation pairs based on differences in participants’ interests.
+        //MARK: - Generate conversation pairs based on differences in participants’ interests.
         let participantsGroup1 = peoplePlaying
         let participantsGroup2 = peoplePlaying
         var pairings:[[Person]] = []
-        //for each particpant to each other
-        //if there is a shared interest, take that interest out of the pairing
         for personGroup1index in 0..<participantsGroup1.count {
             for personGroup2index in personGroup1index..<participantsGroup2.count {
                 if participantsGroup1[personGroup1index].firstName == participantsGroup2[personGroup2index].firstName {
@@ -66,40 +49,36 @@ class Introductions {
         printPairings(pairings)
     }
        
-       private func introducePeople(_ peoplePlaying: [Person]) {
-           //Log participants’ introductions in the same order that you initially populated your original data container.
-           for person in peoplePlaying {
-               person.introduceSelf()
-           }
-       }
+    private func introducePeople(_ peoplePlaying: [Person]) {
+        for person in peoplePlaying {
+            person.introduceSelf()
+        }
+    }
     
-        private func shareInterest(_ peoplePlaying: [Person]) {
-            //Iterate through all of the interests of each participant in a random order, logging one unshared interest at a time.
-            var participantsLeftToShare = peoplePlaying
-            //while there are more partipants left to share
-            while (participantsLeftToShare.count > 0) {
-                //get the current participant
-                let currentParticipant = participantsLeftToShare.popLast()
-                //while the person has no more unshared interests, share an interest
-                for var interest in currentParticipant!.interests {
-                    //if the interest has not been shared
-                    if !interest.isCommon {
-                        //share the interest
-                        interest.printInterest()
-                        //change the value of the interest to shared
-                        interest.isCommon = true
-                        //break out of the interest loop
-                        break
-                    }
+    private func compareInterests(_ peoplePlaying: [Person]) {
+        var pairs: [Person] = []
+        for person in peoplePlaying {
+            let interests = person.interests.map{ $0 }
+            for person2 in peoplePlaying {
+                let interests2 = person2.interests.map{ $0 }
+                let differences = zip(interests, interests2).map { $0.0.title == $0.1.title }
+                if differences.count > 0 {
+                    pairs.append(person)
+                    pairs.append(person2)
                 }
             }
         }
+    }
     
-        private func printPairings(_ pairings: [[Person]]) {
-           //print the pairing results
-           print("*******************************")
-           for pair in pairings {
-            print("=============================")
+    
+    private func printPairings(_ pairings: [[Person]]) {
+        print("\n")
+        print("******************************")
+        print("***        PAIRINGS        ***")
+        print("******************************")
+        for pair in pairings {
+            print("==============================")
+            print("\n")
                for person in pair {
                    person.introduceSelf()
                }
@@ -115,7 +94,6 @@ class Introductions {
             var person = people[peopleIndex]
             let totalInterests = Int.random(in: 1...10)
             var shuffledInterests = interests.shuffled()
-
             for _ in 0..<totalInterests {
                 let interest = shuffledInterests.popLast()!
                 person.setInterest(anInterest: interest)
