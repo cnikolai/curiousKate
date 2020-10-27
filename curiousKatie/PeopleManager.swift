@@ -9,7 +9,6 @@
 import Foundation
 
 class PeopleManager {
-    //creating the people for the game
     static let people:[Person] = [
         Person(firstName:"Joe",lastName:"Smith", age: 32, hometown: "Holland, MI"),
         Person(firstName:"Sally",lastName:"Idaho", age: 21, hometown: "South Bend, IN"),

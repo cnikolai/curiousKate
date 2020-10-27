@@ -70,7 +70,6 @@ class Introductions {
         }
     }
     
-    
     private func printPairings(_ pairings: [[Person]]) {
         print("\n")
         print("******************************")

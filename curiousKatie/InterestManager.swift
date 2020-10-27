@@ -9,7 +9,6 @@
 import Foundation
 
 class InterestManager {
-    //an array to store the interests of the people
     static let interests:[Interest] = [
             Interest(title: "Skating", additionalInfo: "70 degrees"),
             Interest(title: "Surfing", additionalInfo: "not raining, no undertoes, no sharks"),
