@@ -18,9 +18,6 @@ class Introductions {
         //MARK: - introduce people
         introducePeople(peoplePlaying)
         
-        //MARK: - compare interests
-        compareInterests(peoplePlaying)
-        
         //MARK: - Generate conversation pairs based on differences in participants’ interests.
         let participantsGroup1 = peoplePlaying
         let participantsGroup2 = peoplePlaying

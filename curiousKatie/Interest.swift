@@ -11,7 +11,6 @@ import Foundation
 struct Interest {
     let title:String
     var additionalInfo:String
-    var isCommon:Bool = false
     
     func printInterest() -> Void {
         print("\(title): \(additionalInfo)")
