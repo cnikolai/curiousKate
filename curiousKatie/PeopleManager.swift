@@ -13,7 +13,6 @@ class PeopleManager {
     static let people:[Person] = [
         Person(firstName:"Joe",lastName:"Smith", age: 32, hometown: "Holland, MI"),
         Person(firstName:"Sally",lastName:"Idaho", age: 21, hometown: "South Bend, IN"),
-        Person(firstName:"Sally",lastName:"Idaho", age: 21, hometown: "South Bend, IN"),
         Person(firstName:"Bob",lastName:"Nunin", age: 23, hometown: "Great Falls, MT"),
         Person(firstName:"Jane",lastName:"Dowe", age: 26, hometown: "Waldorf, MD"),
         Person(firstName:"John",lastName:"Corrivan", age: 23, hometown: "Ramstein, Germany"),

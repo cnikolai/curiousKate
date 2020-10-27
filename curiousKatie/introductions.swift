@@ -20,8 +20,23 @@ class Introductions {
     
         shareInterest(peoplePlaying)
         
+        var pairs: [Person] = []
+        for person in peoplePlaying {
+            let interests = person.interests.map{ $0 }
+            for person2 in peoplePlaying {
+                let interests2 = person2.interests.map{ $0 }
+                let differences = zip(interests, interests2).map { $0.0.title == $0.1.title }
+                if differences.count > 0 {
+                    //then this is not a pair
+                    pairs.append(person)
+                    pairs.append(person2)
+                }
+            }
+        }
+        
+        
+        
         //Generate conversation pairs based on differences in participants’ interests.
-        //Iterate through all of the interests of each participant in a random order, logging one unshared interest at a time.
         let participantsGroup1 = peoplePlaying
         let participantsGroup2 = peoplePlaying
         var pairings:[[Person]] = []
