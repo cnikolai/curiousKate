@@ -8,80 +8,93 @@
 
 import Foundation
 
+/// Plays a game where people are paired with each other based on differences in their interests
+///
+///
 class Introductions {
     let people:[Person] = PeopleManager.people
     let interests:[Interest] = InterestManager.interests
     
+    /// the main logic of the game
+    ///
+    ///
     func playGame() {
         let peoplePlaying = getPeople()
-    
-        //MARK: - introduce people
+        
         introducePeople(peoplePlaying)
         
-        //MARK: - Generate conversation pairs based on differences in participants’ interests.
-        let participantsGroup1 = peoplePlaying
-        let participantsGroup2 = peoplePlaying
-        var pairings:[[Person]] = []
-        for personGroup1index in 0..<participantsGroup1.count {
-            for personGroup2index in personGroup1index..<participantsGroup2.count {
-                if participantsGroup1[personGroup1index].firstName == participantsGroup2[personGroup2index].firstName {
+        compareInterests(peoplePlaying)
+    }
+   
+    /// Introduces the people to each the game
+    ///
+    /// - Parameters:
+    ///     - peoplePlaying: Array of people to playing the game
+    ///
+    private func introducePeople(_ peoplePlaying: [Person]) {
+        for person in peoplePlaying {
+            person.printPerson()
+        }
+    }
+    
+    /// Prints the pairings of the people in the game
+    ///
+    /// - Parameters:
+    ///     - pairings: Array of people arrays
+    ///
+    private func printPairings(_ pairings: [[Person]]) {
+        print("\n")
+        print("===== TOTAL PAIRINGS: \(pairings.count) =====")
+        guard pairings.count > 0 else {return}
+        for pair in pairings {
+            print("=============================")
+            print("\n")
+            for person in pair {
+                person.printInterests()
+            }
+            print("\n")
+        }
+    }
+    
+    /// Creates people and if they have no interests that they share in commen, then creates a pair out of them
+    ///
+    /// - Parameters:
+    ///     - peoplePlaying: Array of people to playing the game
+    ///
+    private func compareInterests(_ peoplePlaying: [Person]) {
+        var pairs: [[Person]] = []
+        let firstGroup = peoplePlaying
+        let secondGroup = peoplePlaying
+        
+        for firstIndex in 0..<firstGroup.count {
+            for secondIndex in firstIndex..<secondGroup.count {
+                let firstPersonName = firstGroup[firstIndex].fullName
+                let secondPersonName = secondGroup[secondIndex].fullName
+                if firstPersonName == secondPersonName {
                     continue
                 }
-                var tempPairing:[Person] = [participantsGroup1[personGroup1index], participantsGroup2[personGroup2index]]
-                for personGroup1Interest in participantsGroup1[personGroup1index].interests {
-                    for personGroup2Interest in participantsGroup2[personGroup2index].interests {
-                        if personGroup1Interest.title == personGroup2Interest.title {
+                var tempPairing: [Person] = [firstGroup[firstIndex],secondGroup[secondIndex]]
+                for firstInterest in firstGroup[firstIndex].interests {
+                    for secondInterest in secondGroup[secondIndex].interests {
+                        if firstInterest == secondInterest {
                             tempPairing = []
                             continue
                         }
                     }
-                    
                 }
                 if tempPairing.count == 2 {
-                    pairings.append(tempPairing)
+                    pairs.append(tempPairing)
                 }
             }
         }
-        
-        printPairings(pairings)
-    }
-       
-    private func introducePeople(_ peoplePlaying: [Person]) {
-        for person in peoplePlaying {
-            person.introduceSelf()
-        }
+        printPairings(pairs)
     }
     
-    private func compareInterests(_ peoplePlaying: [Person]) {
-        var pairs: [Person] = []
-        for person in peoplePlaying {
-            let interests = person.interests.map{ $0 }
-            for person2 in peoplePlaying {
-                let interests2 = person2.interests.map{ $0 }
-                let differences = zip(interests, interests2).map { $0.0.title == $0.1.title }
-                if differences.count > 0 {
-                    pairs.append(person)
-                    pairs.append(person2)
-                }
-            }
-        }
-    }
-    
-    private func printPairings(_ pairings: [[Person]]) {
-        print("\n")
-        print("******************************")
-        print("***        PAIRINGS        ***")
-        print("******************************")
-        for pair in pairings {
-            print("==============================")
-            print("\n")
-               for person in pair {
-                   person.introduceSelf()
-               }
-               print("\n")
-           }
-       }
-       
+    /// Creates an array of people to play the game (from 2 to 12 players)
+    ///
+    /// - Parameters:
+    ///     - none
+    /// - Returns: Array of people in the game
     private func getPeople() -> [Person] {
         var peoplePlaying: [Person] = []
         let totalPeople = Int.random(in: 2...12)
@@ -96,8 +109,10 @@ class Introductions {
             }
             peoplePlaying.append(person)
         }
+        print("==== TOTAL PEOPLE: \(peoplePlaying.count)   =====")
+        print("\n")
+        
         return peoplePlaying
     }
+    
 }
-
-

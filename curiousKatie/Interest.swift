@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct Interest {
+struct Interest: Hashable {
     let title:String
     var additionalInfo:String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
     
     func printInterest() -> Void {
         print("\(title): \(additionalInfo)")

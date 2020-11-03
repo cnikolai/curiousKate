@@ -23,6 +23,4 @@ class PeopleManager {
         Person(firstName:"Kathy",lastName:"Ferren", age: 26, hometown: "Reston, VA"),
         Person(firstName:"Emily",lastName:"Tyler", age: 21, hometown: "Washington, D.C.")
     ]
-    
-    //
 }

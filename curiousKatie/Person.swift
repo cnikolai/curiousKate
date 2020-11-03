@@ -10,28 +10,29 @@ import Foundation
 struct Person {
     let firstName:String
     let lastName:String
-    var interests:[Interest] = []
+    var interests: Set<Interest> = []
     let age:Int
     let hometown:String
     
+    var fullName: String {
+        firstName + " " + lastName
+    }
+    
     mutating func setInterest(anInterest: Interest) -> Void {
-        interests.append(anInterest)
+        interests.insert(anInterest)
     }
     
     func printPerson() -> Void {
-        print("\(firstName) \(lastName) has interests: \(interests)")
-    }
-    
-    func introduceSelf() -> Void {
-        print("Hi, I'm \(firstName) \(lastName).  I'm \(age) years old, and I'm from \(hometown).")
-        print("I like ")
+        print("\(firstName) \(lastName).  I am \(age) years old, and I am from \(hometown).")
         for interest in interests {
-            interest.printInterest()
+            print(" - \(interest)")
         }
-        print("\n")
     }
     
-    public func randomInterest(i:Int) -> Interest {
-        return interests[i]
+    func printInterests() -> Void {
+        print(fullName)
+        for interest in interests {
+            print(" - \(interest)")
+        }
     }
 }
